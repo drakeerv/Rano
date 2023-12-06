@@ -130,6 +130,7 @@ fn main() {
                             if text_cursor.0 > 0 {
                                 if text_cursor.0 != buffer[text_cursor.1 as usize].len() as u16 {
                                     buffer[text_cursor.1 as usize].remove(text_cursor.0 as usize - 1);
+                                    buffer[text_cursor.1 as usize].insert(text_cursor.0 as usize - 1, ' ');
                                     text_cursor.0 -= 1;
                                     print!("\x08 \x08");
                                     std::io::stdout().flush().unwrap();
